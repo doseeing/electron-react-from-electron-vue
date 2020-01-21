@@ -9,7 +9,6 @@ const MinifyPlugin = require("babel-minify-webpack-plugin")
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { VueLoaderPlugin } = require('vue-loader')
 
 let webConfig = {
   devtool: '#cheap-module-eval-source-map',
@@ -60,20 +59,6 @@ let webConfig = {
         exclude: /node_modules/
       },
       {
-        test: /\.vue$/,
-        use: {
-          loader: 'vue-loader',
-          options: {
-            extractCSS: true,
-            loaders: {
-              sass: 'css-loader!sass-loader?indentedSyntax=1',
-              scss: 'css-loader!sass-loader',
-              less: 'css-loader!less-loader'
-            }
-          }
-        }
-      },
-      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         use: {
           loader: 'url-loader',
@@ -96,7 +81,6 @@ let webConfig = {
     ]
   },
   plugins: [
-    new VueLoaderPlugin(),
     new MiniCssExtractPlugin({filename: 'styles.css'}),
     new HtmlWebpackPlugin({
       filename: 'index.html',

@@ -10,20 +10,13 @@
     },
 {{/testing}}
     "main": {
-      "presets": [
-        "@babel/preset-env",
-        "@babel/preset-react"
-      ]
+      "presets": ["@babel/preset-env"]
     },
     "renderer": {
-      "presets": [
-        "@babel/preset-react"
-      ]
+      "presets": ["@babel/preset-env", "@babel/preset-react"]
     },
     "web": {
-      "presets": [
-        "@babel/preset-env",
-      ]
+      "presets": ["@babel/preset-env", "@babel/preset-react"]
     }
   },
   "plugins": ["@babel/plugin-transform-runtime"]
