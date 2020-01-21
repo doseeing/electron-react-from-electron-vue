@@ -34,20 +34,20 @@ let webConfig = {
     {{#if usesass}}
       {
         test: /\.scss$/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader']
+        use: ['css-loader', 'sass-loader']
       },
       {
         test: /\.sass$/,
-        use: ['vue-style-loader', 'css-loader', 'sass-loader?indentedSyntax']
+        use: ['css-loader', 'sass-loader?indentedSyntax']
       },
     {{/if}}
       {
         test: /\.less$/,
-        use: ['vue-style-loader', 'css-loader', 'less-loader']
+        use: ['css-loader', 'less-loader']
       },
       {
         test: /\.css$/,
-        use: ['vue-style-loader', 'css-loader']
+        use: ['css-loader']
       },
       {
         test: /\.html$/,
@@ -66,9 +66,9 @@ let webConfig = {
           options: {
             extractCSS: true,
             loaders: {
-              sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax=1',
-              scss: 'vue-style-loader!css-loader!sass-loader',
-              less: 'vue-style-loader!css-loader!less-loader'
+              sass: 'css-loader!sass-loader?indentedSyntax=1',
+              scss: 'css-loader!sass-loader',
+              less: 'css-loader!less-loader'
             }
           }
         }
