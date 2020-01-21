@@ -1,32 +1,17 @@
-import Vue from 'vue'
+import React from 'react'
+import ReactDOM from 'react-dom'
+
 {{#isEnabled plugins 'axios'}}
 import axios from 'axios'
 {{/isEnabled}}
 
+import './index.css'
 import App from './App'
-{{#isEnabled plugins 'vue-router'}}
-import router from './router'
-{{/isEnabled}}
-{{#isEnabled plugins 'vuex'}}
-import store from './store'
-{{/isEnabled}}
+import * as serviceWorker from './serviceWorker'
 
-{{#isEnabled plugins 'vue-electron'}}
-if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
-{{/isEnabled}}
-{{#isEnabled plugins 'axios'}}
-Vue.http = Vue.prototype.$http = axios
-{{/isEnabled}}
-Vue.config.productionTip = false
+ReactDOM.render(<App />, document.getElementById('app'))
 
-/* eslint-disable no-new */
-new Vue({
-  components: { App },
-  {{#isEnabled plugins 'vue-router'}}
-  router,
-  {{/isEnabled}}
-  {{#isEnabled plugins 'vuex'}}
-  store,
-  {{/isEnabled}}
-  template: '<App/>'
-}).$mount('#app')
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister()

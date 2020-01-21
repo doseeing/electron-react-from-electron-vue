@@ -9,10 +9,10 @@ module.exports = {
     node: true
   },
   {{#if_eq eslintConfig 'standard'}}
-  extends: 'standard',
+  extends: ['standard', 'plugin:react/recommended'],
   {{/if_eq}}
   {{#if_eq eslintConfig 'airbnb'}}
-  extends: 'airbnb-base',
+  extends: ['airbnb-base', 'plugin:react/recommended'],
   {{/if_eq}}
   globals: {
     __static: true
@@ -37,6 +37,14 @@ module.exports = {
     'no-multi-assign': 0,
     {{/if_eq}}
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'space-before-function-paren': [
+      'error',
+      {
+        anonymous: 'always',
+        named: 'never',
+        asyncArrow: 'never'
+      }
+    ]
   }
 }
